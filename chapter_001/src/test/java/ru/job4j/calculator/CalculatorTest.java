@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 
 public class CalculatorTest {
     @Test
-    public void whenAddOnePlusOneThenTwo()  {
+    public void whenAddOnePlusOneThenTwo() {
         Calculator calc = new Calculator();
         double result = calc.add(1D, 1D);
         double expected = 2D;
@@ -30,7 +30,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void whenMultipleTwoMultiplyTwoThenFour()  {
+    public void whenMultipleTwoMultiplyTwoThenFour() {
         Calculator calc = new Calculator();
         double result = calc.multiple(2D, 2D);
         double expected = 4D;
