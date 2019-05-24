@@ -6,7 +6,6 @@ package ru.job4j.condition;
 public class DummyBot {
     /**
      * Ответ на вопрос
-     *
      * @param question вопрос
      * @return ответ на вопрос
      */
