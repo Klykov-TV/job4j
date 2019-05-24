@@ -6,6 +6,7 @@ package ru.job4j.conventer;
 public class Conventer {
     /**
      * Конвертируем рубли в евро.
+     *
      * @param value рубли.
      * @return Евро.
      */
@@ -15,6 +16,7 @@ public class Conventer {
 
     /**
      * Конвертируем рубли в доллары.
+     *
      * @param value рубли.
      * @return Доллары.
      */
@@ -24,6 +26,7 @@ public class Conventer {
 
     /**
      * Конвертируем евро в рубли.
+     *
      * @param value евро.
      * @return Рубли.
      */
@@ -33,6 +36,7 @@ public class Conventer {
 
     /**
      * Конвертируем доллары в рубли.
+     *
      * @param value доллары.
      * @return рубли.
      */
