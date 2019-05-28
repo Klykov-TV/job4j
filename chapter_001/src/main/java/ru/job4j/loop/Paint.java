@@ -4,7 +4,6 @@ import java.util.function.BiPredicate;
 
 /**
  * Класс рисует пирамиду в псевдографике
- *
  * @author Timofey Klykov
  * @since 27.06.2019
  */
@@ -22,6 +21,32 @@ public class Paint {
             screen.append(System.lineSeparator());
         }
         return screen.toString();
+    }
+
+    /**
+     * Правый треугольник пирамиды
+     * @param height высота пирамиды
+     * @return правый треугольник пирамиды в виде строки
+     */
+    public String rightTrl(int height) {
+        return this.loopBy(
+                height,
+                height,
+                (row, column) -> row >= column
+        );
+    }
+
+    /**
+     * Левый треугольник пирамиды
+     * @param height высота пирамиды
+     * @return левый треугольник пирамиды в виде строки
+     */
+    public String leftTrl(int height) {
+        return this.loopBy(
+                height,
+                height,
+                (row, column) -> row >= height - column - 1
+        );
     }
 
     /**
