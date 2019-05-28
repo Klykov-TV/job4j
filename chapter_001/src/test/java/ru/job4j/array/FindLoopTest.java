@@ -6,8 +6,6 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-import ru.job4j.loop.FindLoop;
-
 public class FindLoopTest {
 
     FindLoop loop = new FindLoop();
