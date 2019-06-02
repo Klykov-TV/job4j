@@ -18,7 +18,7 @@ public class ArrayCharTest {
 
     @Test
     public void whenNotStartsWithPrefixThenFalse() {
-        boolean result = word.startsWith("hello", "Ola");
+        boolean result = word.startsWith("hello", "Helg");
         boolean expect = false;
         assertThat(result, is(expect));
     }
