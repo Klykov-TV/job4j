@@ -69,28 +69,27 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
-        boolean horisontal = false;
-        boolean vertical = false;
         int j = 0;
         int i = 0;
         for (; i != table.length && j != table.length; i++, j++) {
-            if (table[i][0] == 1) {
-                for (int z = 1; z < table.length; z++) {
-                    if (table[i][z] == 1) {
-                        result = true;
-                    } else {
-                        horisontal = false;
-                        break;
-                    }
-                }
-            }
-            if (table[0][j] == 1) {
-                for (int z = 0; z < table.length; z++) {
-                    if (table[j][z] == 1) {
+            if (table[i][j] == 1) {
+                for (int z: table[i]) {
+                    if (z == 1) {
                         result = true;
                     } else {
                         result = false;
                         break;
+                    }
+                }
+
+                if (!result) {
+                    for (int[] z: table) {
+                        if (z[j] == 1) {
+                            result = true;
+                        } else {
+                            result = false;
+                            break;
+                        }
                     }
                 }
             }
@@ -98,16 +97,17 @@ public class Logic {
         return result;
     }
 
-    public int[][] convert() {
-        int[][] table = new int[this.size][this.size];
-        for (int row = 0; row != table.length; row++) {
-            for (int cell = 0; cell != table.length; cell++) {
-                int position = this.findBy(new Cell(row, cell));
-                if (position != -1 && this.figures[position].movable()) {
-                    table[row][cell] = 1;
+        public int[][] convert () {
+            int[][] table = new int[this.size][this.size];
+            for (int row = 0; row != table.length; row++) {
+                for (int cell = 0; cell != table.length; cell++) {
+                    int position = this.findBy(new Cell(row, cell));
+                    if (position != -1 && this.figures[position].movable()) {
+                        table[row][cell] = 1;
+                    }
                 }
             }
+            return table;
         }
-        return table;
+
     }
-}
