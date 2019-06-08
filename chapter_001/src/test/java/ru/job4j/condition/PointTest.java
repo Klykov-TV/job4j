@@ -9,7 +9,7 @@ public class PointTest {
     @Test
     public void whenZeroAndTenThenTen() {
         Point point = new Point();
-        double result = point.distance(5, 8, 4, 8);
+        double result = point.distance(4, 5, 8, 8);
         assertThat(result, is(5D));
 
     }
