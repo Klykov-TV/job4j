@@ -26,7 +26,6 @@ public class Task001 {
                     result[z] = second[j];
                     j++;
                 }
-
             } else if (i < first.length) {
                 result[z] = first[i];
                 i++;
@@ -34,7 +33,6 @@ public class Task001 {
                 result[z] = second[j];
                 j++;
             }
-
         }
         return result;
     }
