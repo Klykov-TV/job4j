@@ -22,9 +22,16 @@ public class MaxTest {
     }
 
     @Test
-    public void whenMax2To2Then2() {
-        Max max = new Max();
-        int result = max.max(2, 2);
-        assertThat(result, is(2));
+    public void whenMaxofThree() {
+        Max ofthree = new Max();
+        int result = ofthree.max(2, 2, 8);
+        assertThat(result, is(8));
+    }
+
+    @Test
+    public void whenMaxOfFour() {
+        Max offour = new Max();
+        int result = offour.max(1, 2, 3, 4);
+        assertThat(result, is(4));
     }
 }
