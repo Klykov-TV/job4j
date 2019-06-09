@@ -2,13 +2,21 @@ package ru.job4j.condition;
 
 public class Triangle {
 
+    private Point first;
+    private Point second;
+    private Point third;
+
+    public Triangle(Point ap, Point bp, Point cp) {
+        this.first = ap;
+        this.second = bp;
+        this.third = cp;
+    }
+
     /**
-     * Полупериметр треугольника
-     *
      * @param a первая сторона
      * @param b вторая сторона
      * @param c третья сторона
-     * @return Полупериметр
+     * @return Полупериметр треугольника
      */
     public double period(double a, double b, double c) {
         return (a + b + c) / 2;
@@ -25,22 +33,13 @@ public class Triangle {
     }
 
     /**
-     * @param x1 х координата 1 точки
-     * @param x2 х координата 2 точки
-     * @param x3 х координата 3 точки
-     * @param y1 у координата 1 точки
-     * @param y2 у координата 2 точки
-     * @param y3 у координата 3 точки
      * @return Площадь треугольника, если он существует, или -1.
      */
-    public double area(int x1, int y1, int x2, int y2, int x3, int y3) {
+    public double area() {
         double rsl = -1;
-        Point one = new Point(x1, y1);
-        Point two = new Point(x2, y2);
-        Point three = new Point(x3, y3);
-        double a = one.distance(two);
-        double b = two.distance(three);
-        double c = three.distance(one);
+        double a = first.distance(second);
+        double b = first.distance(third);
+        double c = second.distance(third);
         double p = period(a, b, c);
 
         if (this.exist(a, b, c)) {
