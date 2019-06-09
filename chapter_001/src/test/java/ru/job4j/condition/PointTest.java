@@ -21,5 +21,13 @@ public class PointTest {
         Point second = new Point(2, 2);
         second.info();
     }
+
+    @Test
+    public void whenCheck3D() {
+        Point point = new Point(0, 0, 0);
+        double result = point.distance(point);
+        assertThat(result, is(0D));
+    }
+
 }
 
