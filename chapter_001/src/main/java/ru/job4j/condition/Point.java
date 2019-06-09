@@ -4,16 +4,19 @@ package ru.job4j.condition;
  * Рассмтояние между двумя точками
  */
 public class Point {
-    /**
-     * @param x1 x координата первой точки
-     * @param x2 x координата второй точки
-     * @param y1 y координата первой точки
-     * @param y2 y координата второй точки
-     * @return расстояние между точками
-     */
-    public double distance(int x1, int y1, int x2, int y2) {
-        double first = Math.pow(x2 - x1, 2);
-        double second = Math.pow(y2 - y1, 2);
-        return Math.sqrt(first + second);
+    private int x;
+    private int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void info() {
+        System.out.println(String.format("Point[%s,%s]", this.x, this.y));
+    }
+
+    public double distance(Point that) {
+        return Math.sqrt(Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2));
     }
 }

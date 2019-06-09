@@ -4,6 +4,7 @@ public class Triangle {
 
     /**
      * Полупериметр треугольника
+     *
      * @param a первая сторона
      * @param b вторая сторона
      * @param c третья сторона
@@ -34,9 +35,12 @@ public class Triangle {
      */
     public double area(int x1, int y1, int x2, int y2, int x3, int y3) {
         double rsl = -1;
-        double a = new Point().distance(x1, y1, x2, y2);
-        double b = new Point().distance(x2, y2, x3, y3);
-        double c = new Point().distance(x1, y1, x3, y3);
+        Point one = new Point(x1, y1);
+        Point two = new Point(x2, y2);
+        Point three = new Point(x3, y3);
+        double a = one.distance(two);
+        double b = two.distance(three);
+        double c = three.distance(one);
         double p = period(a, b, c);
 
         if (this.exist(a, b, c)) {
