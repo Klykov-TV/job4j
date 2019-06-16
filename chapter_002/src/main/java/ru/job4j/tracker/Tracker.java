@@ -15,9 +15,11 @@ public class Tracker {
 
     public boolean replace(String id, Item item) {
         boolean res = false;
-        for (int i = 0; i <= pos; i++) {
+        for (int i = 0; i < pos; i++) {
             if (this.items[i] != null && this.items[i].getId().equals(id)) {
+                String newid = this.items[i].getId();
                 this.items[i] = item;
+                this.items[i].setId(newid);
                 res = true;
             }
         }
@@ -26,9 +28,10 @@ public class Tracker {
 
     public boolean delete(String id) {
         boolean res = false;
-        for (int i = 0; i <= pos; i++) {
+        for (int i = 0; i < pos; i++) {
             if (this.items[i] != null && this.items[i].getId().equals(id)) {
                 System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i - 1);
+                this.pos--;
                 res = true;
             }
         }
@@ -36,37 +39,19 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] res = null;
-        int j = 0;
-        for (int i = 0; i <= this.pos; i++) {
-            if (this.items[i] != null && res == null) {
-                res = new Item[1];
-                res[j] = this.items[i];
-                j++;
-            } else if (this.items[i] != null) {
-                res = Arrays.copyOf(res, j + 1);
-                res[j] = this.items[i];
-                j++;
-            }
-        }
-        return res;
+        return Arrays.copyOf(this.items, this.pos);
     }
 
     public Item[] findByName(String key) {
-        Item[] res = null;
+        Item[] res = Arrays.copyOf(this.items, pos);
         int j = 0;
-        for (int i = 0; i <= this.pos; i++) {
-            if (this.items[i] != null && this.items[i].getName().equals(key) && res == null) {
-                res = new Item[1];
-                res[0] = this.items[i];
-                j++;
-            } else if (this.items[i] != null && this.items[i].getName().equals(key)) {
-                res = Arrays.copyOf(res, j + 1);
+        for (int i = 0; i < this.pos; i++) {
+            if (res[i].getName().equals(key)) {
                 res[j] = this.items[i];
                 j++;
             }
         }
-        return res;
+        return Arrays.copyOf(res, j);
     }
 
     public Item findById(String id) {
@@ -83,5 +68,4 @@ public class Tracker {
     String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
-
 }
