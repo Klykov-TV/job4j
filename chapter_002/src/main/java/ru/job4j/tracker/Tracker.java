@@ -17,9 +17,9 @@ public class Tracker {
         boolean res = false;
         for (int i = 0; i < pos; i++) {
             if (this.items[i] != null && this.items[i].getId().equals(id)) {
-                String newid = this.items[i].getId();
+                String newId = this.items[i].getId();
                 this.items[i] = item;
-                this.items[i].setId(newid);
+                this.items[i].setId(newId);
                 res = true;
             }
         }

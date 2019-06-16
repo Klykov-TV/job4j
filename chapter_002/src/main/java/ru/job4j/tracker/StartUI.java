@@ -1,7 +1,4 @@
-package ru.job4j.start;
-
-import ru.job4j.tracker.Item;
-import ru.job4j.tracker.Tracker;
+package ru.job4j.tracker;
 
 public class StartUI {
     private static final String ADD = "0";
@@ -67,7 +64,7 @@ public class StartUI {
         String desc = this.input.ask("Введите описание заявки: ");
         Item item = new Item(name, desc);
         this.tracker.add(item);
-        System.out.println("------------ Новая заявка с ID : " + item.getId() + " ------------");
+        System.out.println("Новая заявка с ID : " + item.getId());
         System.out.println();
     }
 
@@ -95,9 +92,9 @@ public class StartUI {
         Item item = new Item(name, desc);
         System.out.println();
         if (this.tracker.replace(id, item)) {
-            System.out.println("------------ Заявка с ID " + item.getId() + " была изменена ------------");
-            System.out.println("------------ Новое имя: " + item.getName() + " ------------");
-            System.out.println("------------ Новое описание: " + item.getDesc() + " ------------");
+            System.out.println("Заявка с ID " + item.getId());
+            System.out.println("Новое имя: " + item.getName());
+            System.out.println("Новое описание: " + item.getDesc());
         } else {
             System.out.println("Заявка не найдена.");
         }
