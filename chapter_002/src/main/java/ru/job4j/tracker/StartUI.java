@@ -71,18 +71,15 @@ public class StartUI {
     public void showAllItems() {
         System.out.println("------------ Все существующие заявки. ------------");
         Item[] all = this.tracker.findAll();
-        if (all != null) {
-            for (int i = 0; i < all.length; i++) {
-                System.out.println(i + 1 + ".");
-                System.out.println("Имя заявки: " + all[i].getName());
-                System.out.println("Описание заявки: " + all[i].getDesc());
-                System.out.println("ID заявки: " + all[i].getId());
-                System.out.println();
-            }
-        } else {
-            System.out.println("Заявки не найдены");
+        for (int i = 0; i < all.length; i++) {
+            System.out.println(i + 1 + ".");
+            System.out.println("Имя заявки: " + all[i].getName());
+            System.out.println("Описание заявки: " + all[i].getDesc());
+            System.out.println("ID заявки: " + all[i].getId());
+            System.out.println();
         }
     }
+
 
     private void edit() {
         System.out.println("------------ Изменение заявки. ------------");
