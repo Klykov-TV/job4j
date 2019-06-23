@@ -72,11 +72,16 @@ public class StartUI {
         System.out.println("------------ Все существующие заявки. ------------");
         Item[] all = this.tracker.findAll();
         for (int i = 0; i < all.length; i++) {
-            System.out.println(i + 1 + ".");
-            System.out.println("Имя заявки: " + all[i].getName());
-            System.out.println("Описание заявки: " + all[i].getDesc());
-            System.out.println("ID заявки: " + all[i].getId());
-            System.out.println();
+            StringBuilder item = new StringBuilder()
+                    .append(String.format("%d.", i+1))
+                    .append(System.lineSeparator())
+                    .append(String.format("Имя заявки: %s", all[i].getName()))
+                    .append(System.lineSeparator())
+                    .append(String.format("Описание заявки: %s", all[i].getDesc()))
+                    .append(System.lineSeparator())
+                    .append(String.format("ID заявки: %s", all[i].getId()))
+                    .append(System.lineSeparator());
+            System.out.println(item);
         }
     }
 
@@ -114,31 +119,39 @@ public class StartUI {
         String id = this.input.ask("Введите ID искомой заявки: ");
         Item item = this.tracker.findById(id);
         if (item != null) {
-            System.out.println("Имя заявки: " + item.getName());
-            System.out.println("Описание заявки: " + item.getDesc());
-            System.out.println("ID заявки: " + item.getId());
+            StringBuilder searched = new StringBuilder()
+                    .append(String.format("Имя заявки: %s", item.getName()))
+                    .append(System.lineSeparator())
+                    .append(String.format("Описание заявки: %s", item.getDesc()))
+                    .append(System.lineSeparator())
+                    .append(String.format("ID заявки: %s", item.getId()))
+                    .append(System.lineSeparator());
+            System.out.println(searched);
         } else {
             System.out.println("Заявка не найдена.");
         }
-        System.out.println();
     }
 
     private void nameSearch() {
         System.out.println("------------ Поиск заявок по имени. ------------");
-        String name = this.input.ask("Введите имя искомых заявов: ");
+        String name = this.input.ask("Введите имя искомых заявок: ");
         Item[] item = this.tracker.findByName(name);
         if (item != null) {
             for (int i = 0; i < item.length; i++) {
-                System.out.println(i + 1 + ".");
-                System.out.println("Имя заявки: " + item[i].getName());
-                System.out.println("Описание заявки: " + item[i].getDesc());
-                System.out.println("ID заявки: " + item[i].getId());
-                System.out.println();
+                StringBuilder searched = new StringBuilder()
+                        .append(String.format("%d.", i+1))
+                        .append(System.lineSeparator())
+                        .append(String.format("Имя заявки: %s", item[i].getName()))
+                        .append(System.lineSeparator())
+                        .append(String.format("Описание заявки: %s", item[i].getDesc()))
+                        .append(System.lineSeparator())
+                        .append(String.format("ID заявки: %s", item[i].getId()))
+                        .append(System.lineSeparator());
+                System.out.println(searched);
             }
         } else {
             System.out.println("Заявки не найдены.");
         }
-        System.out.println();
     }
 
     public static void main(String[] args) {
