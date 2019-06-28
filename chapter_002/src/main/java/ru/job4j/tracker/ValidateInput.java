@@ -30,3 +30,4 @@ public class ValidateInput implements Input {
         return value;
     }
 }
+
