@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 public class StartUI {
     private final Input input;
     private final Tracker tracker;
-    private int[] range = new int[] {0, 1, 2, 3, 4, 5};
+    private int[] range = new int[]{0, 1, 2, 3, 4, 5};
 
     public StartUI(Input input, Tracker tracker) {
         this.input = input;
@@ -21,6 +21,6 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        new StartUI(new ValidateInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(new ConsoleInput()), new Tracker()).init();
     }
 }
