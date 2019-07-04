@@ -28,12 +28,12 @@ public class StartUITest {
     }
 
     private String menu = "\r\n"
-            + "0. Add the new item\r\n"
+            + "0. Add item\r\n"
             + "1. Show all items\r\n"
-            + "2. Update item\r\n"
+            + "2. Edit item\r\n"
             + "3. Delete item\r\n"
             + "4. Find item by ID\r\n"
-            + "5. Find items by Name\r\n";
+            + "5. Find items by name\r\n";
 
     @Test
     public void whenUserAddsItemToTracker() {
