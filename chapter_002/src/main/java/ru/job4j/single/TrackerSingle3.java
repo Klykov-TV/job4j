@@ -1,8 +1,21 @@
-package ru.job4j.tracker;
+package ru.job4j.single;
 
-import java.util.*;
+import ru.job4j.tracker.Item;
 
-public class Tracker {
+import java.util.Arrays;
+import java.util.Random;
+
+public class TrackerSingle3 {
+    private static final TrackerSingle3 INSTANCE = new TrackerSingle3();
+
+    private TrackerSingle3() {
+
+    }
+
+    public static TrackerSingle3 getInstance() {
+        return INSTANCE;
+    }
+
     Item[] items = new Item[100];
     private int pos = 0;
     private static final Random RN = new Random();
@@ -69,4 +82,5 @@ public class Tracker {
     String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
+
 }
